@@ -1,26 +1,19 @@
 // ListaTareas
 // HU-02 Consultar tareas
-// Muestra todas las tareas
 
+import { useEffect, useState } from "react";
 import TarjetaTarea from "./TarjetaTarea";
+import { listarTareas } from "../services/tareaService";
 
 function ListaTareas() {
 
-  const tareas = [
+  const [tareas, setTareas] = useState([]);
 
-    {
-      id: 1,
-      titulo: "Estudiar React",
-      descripcion: "Repasar componentes"
-    },
+  useEffect(() => {
 
-    {
-      id: 2,
-      titulo: "Realizar evidencia",
-      descripcion: "Terminar AA4 EV03"
-    }
+    listarTareas().then(setTareas);
 
-  ];
+  }, []);
 
   return (
 
