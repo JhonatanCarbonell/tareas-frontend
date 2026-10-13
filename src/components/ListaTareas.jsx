@@ -1,19 +1,10 @@
 // ListaTareas
 // HU-02 Consultar tareas
+// Props: tareas
 
-import { useEffect, useState } from "react";
 import TarjetaTarea from "./TarjetaTarea";
-import { listarTareas } from "../services/tareaService";
 
-function ListaTareas() {
-
-  const [tareas, setTareas] = useState([]);
-
-  useEffect(() => {
-
-    listarTareas().then(setTareas);
-
-  }, []);
+function ListaTareas({ tareas }) {
 
   return (
 

@@ -1,25 +1,59 @@
 // FormularioTarea
 // HU-01 Registrar tarea
-// Permite registrar nuevas tareas
+// Props: alAgregar
 
-function FormularioTarea() {
+import { useState } from "react";
+
+function FormularioTarea({ alAgregar }) {
+
+  const [titulo, setTitulo] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+
+  const manejarEnvio = (event) => {
+
+    event.preventDefault();
+
+    if (!titulo.trim()) return;
+
+    alAgregar({
+
+      id: Date.now(),
+
+      titulo,
+
+      descripcion
+
+    });
+
+    setTitulo("");
+    setDescripcion("");
+
+  };
 
   return (
 
-    <form>
+    <form onSubmit={manejarEnvio}>
 
       <h2>Nueva Tarea</h2>
 
       <input
         type="text"
         placeholder="Título"
+        value={titulo}
+        onChange={(e) =>
+          setTitulo(e.target.value)
+        }
       />
 
       <br />
 
       <textarea
         placeholder="Descripción"
-      ></textarea>
+        value={descripcion}
+        onChange={(e) =>
+          setDescripcion(e.target.value)
+        }
+      />
 
       <br />
 
@@ -28,6 +62,7 @@ function FormularioTarea() {
       </button>
 
     </form>
+
   );
 
 }
