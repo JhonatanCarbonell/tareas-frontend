@@ -1,10 +1,11 @@
 // TarjetaTarea
 // HU-04 Eliminar tarea
-// Props: tarea
+// Props: tarea, alEliminar
 
-function TarjetaTarea({ tarea }) {
+function TarjetaTarea({ tarea, alEliminar }) {
 
   return (
+
     <div>
 
       <h3>{tarea.titulo}</h3>
@@ -13,10 +14,16 @@ function TarjetaTarea({ tarea }) {
 
       <button>Editar</button>
 
-      <button>Eliminar</button>
+      <button
+        onClick={() => alEliminar(tarea.id)}
+      >
+        Eliminar
+      </button>
 
     </div>
+
   );
+
 }
 
 export default TarjetaTarea;

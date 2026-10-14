@@ -1,10 +1,9 @@
 // ListaTareas
 // HU-02 Consultar tareas
-// Props: tareas
 
 import TarjetaTarea from "./TarjetaTarea";
 
-function ListaTareas({ tareas }) {
+function ListaTareas({ tareas, alEliminar }) {
 
   return (
 
@@ -13,16 +12,15 @@ function ListaTareas({ tareas }) {
       <h2>Lista de tareas</h2>
 
       {
-
         tareas.map((tarea) => (
 
           <TarjetaTarea
             key={tarea.id}
             tarea={tarea}
+            alEliminar={alEliminar}
           />
 
         ))
-
       }
 
     </div>

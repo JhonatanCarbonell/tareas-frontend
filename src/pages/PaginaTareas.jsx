@@ -34,8 +34,17 @@ function PaginaTareas() {
 
   };
 
-  return (
+  const eliminarTarea = (id) => {
 
+    setTareas(
+      tareas.filter(
+        (tarea) => tarea.id !== id
+      )
+    );
+
+  };
+
+  return (
     <>
       <Encabezado />
 
@@ -47,11 +56,11 @@ function PaginaTareas() {
 
       <ListaTareas
         tareas={tareas}
+        alEliminar={eliminarTarea}
       />
 
       <PiePagina />
     </>
-
   );
 }
 
